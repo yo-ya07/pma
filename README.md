@@ -1,24 +1,53 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column               | Type   | Options                  |
+|----------------------|--------|--------------------------|
+| nickname             | string | null: false              |
+| email                | string | null: false,unique: true |
+| password_digest      | string | null: false              |
+| last_name            | string | null: false              |
+| first_name           | string | null: false              |
+| last_name_kana       | string | null: false              |
+| first_name_kana      | string | null: false              |
+| birth_day            | date   | null: false              |
 
-Things you may want to cover:
+### Association
+* has_many :passwords
+* has_many :creations
 
-* Ruby version
 
-* System dependencies
+## passwordsテーブル
+| Column               | Type       | Options                  |
+|----------------------|------------|--------------------------|
+| login_title          | string     | null: false              |
+| registration_email   | string     | null: false,unique: true |
+| created_password     | string     | null: false              |
+| login_url            | text       | null: false              |
+| memo                 | text       |                          |
 
-* Configuration
+### Association
+* belongs_to :management
 
-* Database creation
 
-* Database initialization
+## managementsテーブル
+| Column               | Type       | Options                  |
+|----------------------|------------|--------------------------|
+| creation_id          | references | foreign_key: true        |
+| user_id              | references | foreign_key: true        |
 
-* How to run the test suite
+### Association
+* belongs_to :user
+* belongs_to :creation
+* has_one :password
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## creationsテーブル
+| Column               | Type       | Options           |
+|----------------------|------------|-------------------|
+| create_date          | string     | null: false       |
+| user                 | references | foreign_key: true |
 
-* ...
+### Association
+* belongs_to :user
+* has_one :management

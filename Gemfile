@@ -6,7 +6,7 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2', '>= 0.5.3'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.16'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -54,6 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # group :development, :test do
+#   gem 'rspec', '>= 3'
 # end
 
-gem 'bcrypt', '~> 3.1.16'
+gem 'pry-rails'
