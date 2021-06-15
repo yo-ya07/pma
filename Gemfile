@@ -57,4 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #   gem 'rspec', '>= 3'
 # end
 
+gem 'devise'
 gem 'pry-rails'
